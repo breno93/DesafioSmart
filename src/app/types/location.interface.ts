@@ -7,12 +7,10 @@ export interface Location {
   towel: string,
   fountain: string,
   locker_room: string,
-  schedules: Schedules[],
+  schedules: Schedule[]
 }
 
-
-interface Schedules {
+interface Schedule {
   weekdays: string,
   hour: string
 }
-
