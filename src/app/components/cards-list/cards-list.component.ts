@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Location } from '../../types/location.interface';
-import { CardComponent } from '../card/card.component';
+import { Component, Input, OnInit } from "@angular/core";
+import { Location } from "../../types/location.interface";
+
 
 @Component({
   selector: 'app-cards-list',
-  standalone: false,
+  //standalone: false,
   templateUrl: './cards-list.component.html',
   styleUrls: ['./cards-list.component.scss']
 })

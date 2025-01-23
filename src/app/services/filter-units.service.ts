@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Location } from '../types/location.interface';
 
-const OPENNING_HOURS = {
+const OPENING_HOURS = {
   morning: {
     first: '06',
     last: '12'
@@ -25,7 +25,7 @@ export class FilterUnitsService {
 
   constructor() { }
 
-  transformWeekDay(weekday: number) {
+  transformWeekday(weekday: number) {
     switch (weekday) {
       case 0:
         return 'Dom.'
@@ -37,12 +37,12 @@ export class FilterUnitsService {
   }
 
   filterUnits(unit: Location, open_hour: string, close_hour: string) {
-    if (!unit.schedules) return true
+    if (!unit.schedules) return true;
 
     let open_hour_filter = parseInt(open_hour, 10)
     let close_hour_filter = parseInt(close_hour, 10)
 
-    let todays_weekday = this.transformWeekDay(new Date().getDay())
+    let todays_weekday = this.transformWeekday(new Date().getDay());
 
     for (let i = 0; i < unit.schedules.length; i++) {
       let schedule_hour = unit.schedules[i].hour
@@ -58,21 +58,23 @@ export class FilterUnitsService {
         }
       }
     }
-    return false
+
+    return false;
   }
 
   filter(results: Location[], showClosed: boolean, hour: string) {
     let intermediateResults = results;
 
     if (!showClosed) {
-      intermediateResults = results.filter(location => location.opened === true)
+      intermediateResults = results.filter(location => location.opened === true);
     }
+
     if (hour) {
-      const OPEN_HOUR = OPENNING_HOURS[hour as HOUR_INDEXES].first
-      const CLOSE = OPENNING_HOURS[hour as HOUR_INDEXES].last
-      return intermediateResults.filter(location => this.filterUnits(location, OPEN_HOUR, CLOSE))
+      const OPEN_HOUR = OPENING_HOURS[hour as HOUR_INDEXES].first
+      const CLOSE_HOUR = OPENING_HOURS[hour as HOUR_INDEXES].last
+      return intermediateResults.filter(location => this.filterUnits(location, OPEN_HOUR, CLOSE_HOUR));
     } else {
-      return intermediateResults
+      return intermediateResults;
     }
   }
 }

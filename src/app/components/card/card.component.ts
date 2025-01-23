@@ -1,10 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Location } from '../../types/location.interface';
-
+import { Component, Input, OnInit } from "@angular/core";
+import { Location } from "../../types/location.interface";
 
 @Component({
   selector: 'app-card',
-  standalone: false,
+  //standalone: false,
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
