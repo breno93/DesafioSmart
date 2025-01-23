@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from './components/card/card.component';
 import { LegendComponent } from './components/legend/legend.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BrowserModule } from '@angular/platform-browser';
     FormsComponent,
     CardsListComponent,
     CardComponent,
-    LegendComponent
+    LegendComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
